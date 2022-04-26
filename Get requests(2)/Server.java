@@ -211,6 +211,7 @@ public class Server
                         if(form[0].equals("Add"))
                             {
                                 Boolean addStatus = null;
+                                Boolean contStatus = true;
                                 while(!server.isClosed() && val)
                                 {
                                     // socket = server.accept();
@@ -286,6 +287,11 @@ public class Server
                                         {
                                             out.println("<p style=\"color:red\">Contact has not been added successfully, add all fields</p>");
                                         }
+                                        else if(!contStatus)
+                                        {
+                                            out.println("<p style=\"color:red\">Contact has not been added successfully, duplicate contact </p>");
+                                            contStatus = true;
+                                        }
                                         out.println("<form method=\"get\" action=\"\">");
                                         out.println("<div class=\"input_group\">");
                                         out.println("<label>Name</label>");
@@ -334,30 +340,70 @@ public class Server
                                                
                                                 if(form2.length>1)
                                                 {
+                                                    String current;
+                                                    String data[];
+
                                                     String [] name = form2[0].split("\\=");
                                                     String [] surname = form2[1].split("\\=");
                                                     String [] num = form2[2].split("\\=");
-                                                    try(FileWriter writer = new FileWriter("Contacts.txt",true);
-                                                    BufferedWriter buf = new BufferedWriter(writer);
-                                                    PrintWriter pri = new PrintWriter(buf))
-                                                    {
-                                                        if(name.length > 1 && surname.length > 1 && num.length >1)
+                                                    try  
                                                         {
-                                                            pri.print(name[1]+",");
-                                                            pri.print(surname[1]+",");
-                                                            pri.println(num[1]);
-                                                            addStatus = true;
+                                                            FileReader fr = new FileReader("Contacts.txt");
+                                                            BufferedReader br = new BufferedReader(fr);
+                                                            while((current = br.readLine()) != null)
+                                                            {
+                                                                data = current.split(",");
+                                                                String oriName="";
+                                                                if(name.length > 1 && surname.length > 1)
+                                                                {
+                                                                    oriName = name[1]+surname[1];
+                                                                }
+                                                                String secName = "";
+                                                                if(data.length>1 )
+                                                                {
+                                                                    secName = data[0]+data[1]; 
+                                                                }
+                                                                
+                                                                if(oriName.equals(secName))
+                                                                {
+                                                                    System.out.println("Duplicates");
+                                                                    contStatus = false;
+                                                                    addStatus = null;
+                                                                }
+                                                            }
+                                                            fr.close();
+                                                            br.close();
+                                                            
                                                         }
-                                                        else
+                                                        catch(IOException i)
                                                         {
-                                                            addStatus = false;
+
                                                         }
-                                                        
-                                                        
-                                                    }
-                                                    catch(IOException e)
+
+                                                    if(contStatus)
                                                     {
-                                                        System.out.println(e);
+                                                        try(FileWriter writer = new FileWriter("Contacts.txt",true);
+                                                        BufferedWriter buf = new BufferedWriter(writer);
+                                                        PrintWriter pri = new PrintWriter(buf))
+                                                        {
+                                                            if(name.length > 1 && surname.length > 1 && num.length >1)
+                                                            {
+                                                                pri.print(name[1]+",");
+                                                                pri.print(surname[1]+",");
+                                                                pri.println(num[1]);
+                                                                addStatus = true;
+                                                            }
+                                                            else
+                                                            {
+                                                                addStatus = false;
+                                                            }
+                                                            
+                                                            
+                                                        }
+                                                        catch(IOException e)
+                                                        {
+                                                            System.out.println(e);
+                                                        }
                                                     }
                                                     String [] decide = form2[3].split("\\=");
 
