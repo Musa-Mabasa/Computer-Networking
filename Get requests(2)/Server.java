@@ -61,7 +61,6 @@ public class Server
 
             while(!server.isClosed())
             { 
-                System.out.println("Close please3");
                 if(socket==null ||socket.isClosed())
                 {
                     socket = server.accept();
@@ -69,7 +68,6 @@ public class Server
                 System.out.println("Client accepted");
                 if(!val)
                 {
-                System.out.println("Goooo");
                 
                     try{
                         PrintWriter out = new PrintWriter(socket.getOutputStream());
@@ -168,7 +166,7 @@ public class Server
                         }
 
                     }
-                    if(socket.isOutputShutdown())
+                    if(socket.isInputShutdown())
                     {
                         System.out.println("connected");
 
@@ -177,31 +175,28 @@ public class Server
                     {
                         socket = server.accept();
                     }
-                    System.out.println("after first");
                     in = new DataInputStream(
                         new BufferedInputStream(socket.getInputStream()));
         
                     firstIn = in.readLine();
         
-                    System.out.println("Input1 "+firstIn);
-
+                    if(firstIn == null)
+                    {
+                        break;
+                    }
                 if(firstIn!=null)
                 {
                     val = true;
                     String[] split = firstIn.split(" ");
                     for(String sp : split)
                     {
-                        System.out.println("First "+sp);
                     }
                     String[] form = null;;
                     if(split.length > 1)
                     {
                         String[] que = split[1].split("\\?");
 
-                        for(String ques : que)
-                        {
-                            System.out.println("Sec "+ques);
-                        }
+                        
                         if(que.length>1)
                         {
                             form = que[1].split("\\=");
@@ -217,11 +212,9 @@ public class Server
                                 Boolean addStatus = null;
                                 while(!server.isClosed() && val)
                                 {
-                                    System.out.println("In addd");
                                     // socket = server.accept();
                                     try
                                     {
-                                        System.out.println("whyyyyyyy");
                                         PrintWriter out = new PrintWriter(socket.getOutputStream());
 
                                         out.println("HTTP/1.1 200 OK");
@@ -325,30 +318,19 @@ public class Server
                             
                                         firstIn = in.readLine();
                             
-                                        System.out.println("Input2 "+firstIn);
-
                                         String[] split2 = firstIn.split(" ");
                                         
-                                        for(String sp : split)
-                                        {
-                                            System.out.println("First "+sp);
-                                        }
+                                        
                                         String[] form2 = null;
                                         if(split.length > 1)
                                         {
                                             String[] que2 = split2[1].split("\\?");
 
-                                            for(String ques : que2)
-                                            {
-                                                System.out.println("Sec "+ques);
-                                            }
+                                            
                                             if(que2.length>1)
                                             {
                                                 form2 = que2[1].split("\\&");
-                                                for(String fo : form2)
-                                                {
-                                                    System.out.println("Third "+fo);
-                                                }
+                                               
                                                 if(form2.length>1)
                                                 {
                                                     String [] name = form2[0].split("\\=");
@@ -378,7 +360,6 @@ public class Server
                                                     }
                                                     String [] decide = form2[3].split("\\=");
 
-                                                    System.out.println("Menu "+decide[0]);
 
 
                                                     if(decide[0].equals("menu"))
@@ -402,7 +383,6 @@ public class Server
                                     {
                                         System.out.println(i);
                                     }
-                                    System.out.println("Musaaa: "+Boolean.toString(val));
                                 }
                                 
                             }
@@ -411,11 +391,9 @@ public class Server
                                 Boolean addStatus = null;
                                 while(!server.isClosed() && val)
                                 {
-                                    System.out.println("In view");
                                     // socket = server.accept();
                                     try
                                     {
-                                        System.out.println("whyyyyyyy");
                                         PrintWriter out = new PrintWriter(socket.getOutputStream());
 
                                         out.println("HTTP/1.1 200 OK");
@@ -503,12 +481,15 @@ public class Server
                                                 String line = read.nextLine();
 
                                                 String [] fields = line.split(",");
-
-                                                out.println("<tr>");
-                                                out.println("<td>"+ fields[0]+ "</th>");
-                                                out.println("<td>"+ fields[1] +"</th>");
-                                                out.println("<td>"+ fields[2] +"</th>");
-                                                out.println("</tr>");
+                                                if(fields.length>0)
+                                                {
+                                                    out.println("<tr>");
+                                                    out.println("<td>"+ fields[0]+ "</th>");
+                                                    out.println("<td>"+ fields[1] +"</th>");
+                                                    out.println("<td>"+ fields[2] +"</th>");
+                                                    out.println("</tr>");
+                                                }
+                                                
 
 
                                             }
@@ -537,35 +518,24 @@ public class Server
                             
                                         firstIn = in.readLine();
                             
-                                        System.out.println("Input2 "+firstIn);
 
                                         String[] split2 = firstIn.split(" ");
                                         
-                                        for(String sp : split)
-                                        {
-                                            System.out.println("First "+sp);
-                                        }
+                                        
                                         String[] form2 = null;
                                         if(split.length > 1)
                                         {
                                             String[] que2 = split2[1].split("\\?");
 
-                                            for(String ques : que2)
-                                            {
-                                                System.out.println("Sec "+ques);
-                                            }
+                                            
                                             if(que2.length>1)
                                             {
                                                 form2 = que2[1].split("\\&");
-                                                for(String fo : form2)
-                                                {
-                                                    System.out.println("Third "+fo);
-                                                }
+                                                
                                                 if(form2.length>0)
                                                 {
                                                     String [] decide = form2[0].split("\\=");
 
-                                                    System.out.println("Menu "+decide[0]);
 
 
                                                     if(decide[0].equals("menu"))
@@ -589,7 +559,6 @@ public class Server
                                     {
                                         System.out.println(i);
                                     }
-                                    System.out.println("Musaaa: "+Boolean.toString(val));
                                 }
                                 
                             }
@@ -599,11 +568,9 @@ public class Server
                                 while(!server.isClosed() && val)
                                 {
 
-                                    System.out.println("In del");
                                     // socket = server.accept();
                                     try
                                     {
-                                        System.out.println("whyyyyyyy");
                                         PrintWriter out = new PrintWriter(socket.getOutputStream());
 
                                         out.println("HTTP/1.1 200 OK");
@@ -705,30 +672,20 @@ public class Server
                             
                                         firstIn = in.readLine();
                             
-                                        System.out.println("Input2 "+firstIn);
 
                                         String[] split2 = firstIn.split(" ");
                                         
-                                        for(String sp : split)
-                                        {
-                                            System.out.println("First "+sp);
-                                        }
+                                        
                                         String[] form2 = null;
                                         if(split.length > 1)
                                         {
                                             String[] que2 = split2[1].split("\\?");
 
-                                            for(String ques : que2)
-                                            {
-                                                System.out.println("Sec "+ques);
-                                            }
+                                            
                                             if(que2.length>1)
                                             {
                                                 form2 = que2[1].split("\\&");
-                                                for(String fo : form2)
-                                                {
-                                                    System.out.println("Third "+fo);
-                                                }
+                                                
                                                 if(form2.length>1)
                                                 {
                                                     File oldFile = new  File("Contacts.txt");
@@ -743,7 +700,6 @@ public class Server
                                                         String toRemove ="";
                                                         
                                                         toRemove += name[1]+ "," + surname[1]+ "," + num;
-                                                        System.out.println("Remove: "+ toRemove);
 
                                                         String current;
                                                         String data[];
@@ -795,7 +751,6 @@ public class Server
 
                                                     String [] decide = form2[2].split("\\=");
 
-                                                    System.out.println("Menu "+decide[0]);
 
 
                                                     if(decide[0].equals("menu"))
@@ -819,7 +774,6 @@ public class Server
                                     {
                                         System.out.println(i);
                                     }
-                                    System.out.println("Musaaa: "+Boolean.toString(val));
                                 }
                                 
                             }
@@ -830,11 +784,9 @@ public class Server
                                 while(!server.isClosed())
                                 {
 
-                                    System.out.println("In del");
                                     // socket = server.accept();
                                     try
                                     {
-                                        System.out.println("whyyyyyyy");
                                         PrintWriter out = new PrintWriter(socket.getOutputStream());
 
                                         out.println("HTTP/1.1 200 OK");
@@ -933,30 +885,20 @@ public class Server
                             
                                         firstIn = in.readLine();
                             
-                                        System.out.println("Input2 "+firstIn);
 
                                         String[] split2 = firstIn.split(" ");
                                         
-                                        for(String sp : split)
-                                        {
-                                            System.out.println("First "+sp);
-                                        }
+                                        
                                         String[] form2 = null;
                                         if(split.length > 1)
                                         {
                                             String[] que2 = split2[1].split("\\?");
 
-                                            for(String ques : que2)
-                                            {
-                                                System.out.println("Sec "+ques);
-                                            }
+                                            
                                             if(que2.length>1)
                                             {
                                                 form2 = que2[1].split("\\&");
-                                                for(String fo : form2)
-                                                {
-                                                    System.out.println("Third "+fo);
-                                                }
+                                               
                                                 if(form2.length>1)
                                                 {
                                                     File oldFile = new  File("Contacts.txt");
@@ -971,7 +913,6 @@ public class Server
                                                         String toRemove ="";
                                                         
                                                         toRemove += name[1]+ "," + surname[1]+ "," + num;
-                                                        System.out.println("Remove: "+ toRemove);
 
                                                         String current;
                                                         String data[];
@@ -1024,8 +965,6 @@ public class Server
 
                                                     String [] decide = form2[2].split("\\=");
 
-                                                    System.out.println("Menu "+decide[0]);
-
 
                                                     if(decide[0].equals("menu"))
                                                     {
@@ -1048,7 +987,6 @@ public class Server
                                     {
                                         System.out.println(i);
                                     }
-                                    System.out.println("Musaaa: "+Boolean.toString(val));
                                     if(outOFHere)
                                     {
                                         break;
@@ -1059,11 +997,9 @@ public class Server
                                 Boolean outOfHere2 = null;
                                 while(!server.isClosed())
                                 {
-                                    System.out.println("In addd");
                                     // socket = server.accept();
                                     try
                                     {
-                                        System.out.println("whyyyyyyy");
                                         PrintWriter out = new PrintWriter(socket.getOutputStream());
 
                                         out.println("HTTP/1.1 200 OK");
@@ -1167,30 +1103,20 @@ public class Server
                             
                                         firstIn = in.readLine();
                             
-                                        System.out.println("Input2 "+firstIn);
 
                                         String[] split2 = firstIn.split(" ");
                                         
-                                        for(String sp : split)
-                                        {
-                                            System.out.println("First "+sp);
-                                        }
+                                        
                                         String[] form2 = null;
                                         if(split.length > 1)
                                         {
                                             String[] que2 = split2[1].split("\\?");
 
-                                            for(String ques : que2)
-                                            {
-                                                System.out.println("Sec "+ques);
-                                            }
+                                            
                                             if(que2.length>1)
                                             {
                                                 form2 = que2[1].split("\\&");
-                                                for(String fo : form2)
-                                                {
-                                                    System.out.println("Third "+fo);
-                                                }
+                                                
                                                 if(form2.length>1)
                                                 {
                                                     String [] name = form2[0].split("\\=");
@@ -1220,7 +1146,6 @@ public class Server
                                                     }
                                                     String [] decide = form2[3].split("\\=");
 
-                                                    System.out.println("Menu "+decide[0]);
 
 
                                                     if(decide[0].equals("menu"))
@@ -1244,7 +1169,6 @@ public class Server
                                     {
                                         System.out.println(i);
                                     }
-                                    System.out.println("Musaaa: "+Boolean.toString(val));
                                     if(outOfHere2)
                                     {
                                         break;
@@ -1255,7 +1179,6 @@ public class Server
 
                         }
                     }
-                    System.out.println("Close please");
                     
                 }
                         
