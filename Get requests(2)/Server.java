@@ -64,8 +64,9 @@ public class Server
                 if(socket==null ||socket.isClosed())
                 {
                     socket = server.accept();
+                    System.out.println("Client accepted");
                 }
-                System.out.println("Client accepted");
+                
                 if(!val)
                 {
                 
