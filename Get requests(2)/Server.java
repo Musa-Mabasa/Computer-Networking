@@ -86,7 +86,6 @@ public class Server
                         out.println("<body>");
                         out.println("<style>");
                         out.println("body{");
-                        out.println("border:1px solid black;");
                         out.println("background: url(\"https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-smart-tech-blue-phone-background-backgroundmobile-phonenew-erauniverseintelligentstereoscopicilluminatetechnologydynamicgridbackgroundadvertising-image_72371.jpg\") no-repeat center center fixed;");
                         out.println("-webkit-background-size: cover;");
                         out.println("-moz-background-size: cover;");
@@ -94,6 +93,10 @@ public class Server
                         out.println("background-size: cover;");
                         out.println("background-color: green");
                         out.println(" width: 100%;");
+                        out.println(" height: 100%;");
+                        out.println("}");
+                        out.println("form{");
+                        out.println("margin-left:150px");
                         out.println("}");
                         out.println(".inputer{");
                         out.println("position: absolute;");
@@ -101,7 +104,7 @@ public class Server
                         out.println("background-color: black;");
                         out.println("padding: 5%;");
                         out.println("margin-left: 28%;");
-                        out.println("margin-up: 15%;");
+                        out.println("margin-top: 10%;");
                         out.println("opacity: 0.8;");
                         out.println("border-radius: 2%;");
                         out.println("}");
@@ -134,16 +137,16 @@ public class Server
                         out.println("<form method=\"get\" action=\"\">");
                         out.println("<div class=\"input_group\">");
                         out.println("<button type=\"submit\" name=\"view\" class=\"btn\">View Contact</button>");
-                        out.println("</div>");
+                        out.println("</div><br>");
                         out.println("<div class=\"input_group\">");
                         out.println("<button type=\"submit\" name=\"Add\" class=\"btn\">Add Contact</button>");
-                        out.println("</div>");
+                        out.println("</div><br>");
                         out.println("<div class=\"input_group\">");
                         out.println("<button type=\"submit\" name=\"Delete\" class=\"btn\">Delete Contact</button>");
-                        out.println("</div>");
+                        out.println("</div><br>");
                         out.println("<div class=\"input_group\">");
                         out.println("<button type=\"submit\" name=\"Edit\" class=\"btn\">Edit Contact</button>");
-                        out.println("</div>");
+                        out.println("</div><br>");
                         out.println("</form>");
                         out.println("</div>");
                         out.println("</body>");
@@ -560,7 +563,7 @@ public class Server
 
                                                             FileReader fr = new FileReader("Contacts.txt");
                                                             BufferedReader br = new BufferedReader(fr);
-
+                                                            delStatus = false;
                                                             while((current = br.readLine()) != null)
                                                             {
                                                                 data = current.split(",");
@@ -788,7 +791,7 @@ public class Server
 
                                                             FileReader fr = new FileReader("Contacts.txt");
                                                             BufferedReader br = new BufferedReader(fr);
-
+                                                            delStatus = false;
                                                             while((current = br.readLine()) != null)
                                                             {
                                                                 data = current.split(",");
@@ -949,11 +952,11 @@ public class Server
                                         out.println("<input type=\"text\" name=\"phone number\" id=\"input\" placeholder=\"Enter surname\"");
                                         out.println("</div>");
                                         out.println("<div class=\"input_group\">");
-                                        out.println("<button type=\"submit\" name=\"login\" class=\"btn\">Submit</button>");
+                                        out.println("<button type=\"submit\" name=\"menu\" class=\"btn\">Submit</button>");
                                         out.println("</div>");
-                                        out.println("<div class=\"input_group\">");
-                                        out.println("<button type=\"submit\" name=\"menu\" class=\"btn\">Menu</button>");
-                                        out.println("</div>");
+                                        // out.println("<div class=\"input_group\">");
+                                        // out.println("<button type=\"submit\" name=\"menu\" class=\"btn\">Menu</button>");
+                                        // out.println("</div>");
                                         out.println("</form>");
                                         out.println("</div>");
 
