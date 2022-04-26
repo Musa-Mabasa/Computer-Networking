@@ -236,7 +236,6 @@ public class Server
                                         out.println("<body>");
                                         out.println("<style>");
                                         out.println("body{");
-                                        out.println("border:1px solid black;");
                                         out.println("background: url(\"https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-smart-tech-blue-phone-background-backgroundmobile-phonenew-erauniverseintelligentstereoscopicilluminatetechnologydynamicgridbackgroundadvertising-image_72371.jpg\") no-repeat center center fixed;");
                                         out.println("-webkit-background-size: cover;");
                                         out.println("-moz-background-size: cover;");
@@ -244,6 +243,10 @@ public class Server
                                         out.println("background-size: cover;");
                                         out.println("background-color: green");
                                         out.println(" width: 100%;");
+                                        out.println(" height: 100%;");
+                                        out.println("}");
+                                        out.println("form{");
+                                        out.println("margin-left:150px");
                                         out.println("}");
                                         out.println(".inputer{");
                                         out.println("position: absolute;");
@@ -251,7 +254,7 @@ public class Server
                                         out.println("background-color: black;");
                                         out.println("padding: 5%;");
                                         out.println("margin-left: 28%;");
-                                        out.println("margin-up: 15%;");
+                                        out.println("margin-top: 10%;");
                                         out.println("opacity: 0.8;");
                                         out.println("border-radius: 2%;");
                                         out.println("}");
@@ -428,7 +431,6 @@ public class Server
                                         out.println("<body>");
                                         out.println("<style>");
                                         out.println("body{");
-                                        out.println("border:1px solid black;");
                                         out.println("background: url(\"https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-smart-tech-blue-phone-background-backgroundmobile-phonenew-erauniverseintelligentstereoscopicilluminatetechnologydynamicgridbackgroundadvertising-image_72371.jpg\") no-repeat center center fixed;");
                                         out.println("-webkit-background-size: cover;");
                                         out.println("-moz-background-size: cover;");
@@ -436,6 +438,10 @@ public class Server
                                         out.println("background-size: cover;");
                                         out.println("background-color: green");
                                         out.println(" width: 100%;");
+                                        out.println(" height: 100%;");
+                                        out.println("}");
+                                        out.println("form{");
+                                        out.println("margin-left:150px");
                                         out.println("}");
                                         out.println(".inputer{");
                                         out.println("position: absolute;");
@@ -443,7 +449,7 @@ public class Server
                                         out.println("background-color: black;");
                                         out.println("padding: 5%;");
                                         out.println("margin-left: 28%;");
-                                        out.println("margin-up: 15%;");
+                                        out.println("margin-top: 10%;");
                                         out.println("opacity: 0.8;");
                                         out.println("border-radius: 2%;");
                                         out.println("}");
@@ -656,7 +662,6 @@ public class Server
                                         out.println("<body>");
                                         out.println("<style>");
                                         out.println("body{");
-                                        out.println("border:1px solid black;");
                                         out.println("background: url(\"https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-smart-tech-blue-phone-background-backgroundmobile-phonenew-erauniverseintelligentstereoscopicilluminatetechnologydynamicgridbackgroundadvertising-image_72371.jpg\") no-repeat center center fixed;");
                                         out.println("-webkit-background-size: cover;");
                                         out.println("-moz-background-size: cover;");
@@ -664,6 +669,10 @@ public class Server
                                         out.println("background-size: cover;");
                                         out.println("background-color: green");
                                         out.println(" width: 100%;");
+                                        out.println(" height: 100%;");
+                                        out.println("}");
+                                        out.println("form{");
+                                        out.println("margin-left:150px");
                                         out.println("}");
                                         out.println(".inputer{");
                                         out.println("position: absolute;");
@@ -671,7 +680,7 @@ public class Server
                                         out.println("background-color: black;");
                                         out.println("padding: 5%;");
                                         out.println("margin-left: 28%;");
-                                        out.println("margin-up: 15%;");
+                                        out.println("margin-top: 10%;");
                                         out.println("opacity: 0.8;");
                                         out.println("border-radius: 2%;");
                                         out.println("}");
@@ -885,7 +894,6 @@ public class Server
                                         out.println("<body>");
                                         out.println("<style>");
                                         out.println("body{");
-                                        out.println("border:1px solid black;");
                                         out.println("background: url(\"https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-smart-tech-blue-phone-background-backgroundmobile-phonenew-erauniverseintelligentstereoscopicilluminatetechnologydynamicgridbackgroundadvertising-image_72371.jpg\") no-repeat center center fixed;");
                                         out.println("-webkit-background-size: cover;");
                                         out.println("-moz-background-size: cover;");
@@ -893,6 +901,10 @@ public class Server
                                         out.println("background-size: cover;");
                                         out.println("background-color: green");
                                         out.println(" width: 100%;");
+                                        out.println(" height: 100%;");
+                                        out.println("}");
+                                        out.println("form{");
+                                        out.println("margin-left:150px");
                                         out.println("}");
                                         out.println(".inputer{");
                                         out.println("position: absolute;");
@@ -900,7 +912,7 @@ public class Server
                                         out.println("background-color: black;");
                                         out.println("padding: 5%;");
                                         out.println("margin-left: 28%;");
-                                        out.println("margin-up: 15%;");
+                                        out.println("margin-top: 10%;");
                                         out.println("opacity: 0.8;");
                                         out.println("border-radius: 2%;");
                                         out.println("}");
