@@ -1044,7 +1044,7 @@ public class Server
                                 Boolean outOfHere2 = null;
                                 while(!server.isClosed())
                                 {
-                                    // socket = server.accept();
+                                    
                                     try
                                     {
                                         PrintWriter out = new PrintWriter(socket.getOutputStream());
