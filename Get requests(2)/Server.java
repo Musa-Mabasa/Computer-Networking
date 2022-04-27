@@ -252,7 +252,7 @@ public class Server
                                         out.println("margin-top: 10%;");
                                         out.println("opacity: 0.8;");
                                         out.println("border-radius: 2%;");
-                                        out.println("}");
+                                        out.println("}"); 
                                         out.println("#input{");
                                         out.println("margin-top: 1%;");
                                         out.println("margin-bottom: 1%;");
