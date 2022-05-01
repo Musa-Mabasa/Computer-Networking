@@ -158,7 +158,7 @@ public class Server
             
                         // System.out.println("Input1 "+firstIn);
                         out.flush();
-            
+                        
                         out.close();
                         }
                         catch(IOException i)
@@ -169,6 +169,7 @@ public class Server
                     }
                     if(socket.isInputShutdown())
                     {
+                    
                         System.out.println("connected");
 
                     }
@@ -366,7 +367,6 @@ public class Server
                                                                 
                                                                 if(oriName.equals(secName))
                                                                 {
-                                                                    System.out.println("Duplicates");
                                                                     contStatus = false;
                                                                     addStatus = null;
                                                                 }
