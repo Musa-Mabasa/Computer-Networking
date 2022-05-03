@@ -27,8 +27,7 @@ public class Client{
         pro.put(Context.INITIAL_CONTEXT_FACTORY,"com.sun.jndi.ldap.LdapCtxFactory");
         pro.put(Context.PROVIDER_URL,"ldap://phone.localhost:389");
         pro.put(Context.SECURITY_PRINCIPAL,"cn=admin,dc=phone,dc=local");
-        pro.put(Context.SECURITY_CREDENTIALS,"Muzero000814");
-        pro.put(Context.SECURITY_AUTHENTICATION,"simple");
+        pro.put(Context.SECURITY_AUTHENTICATION,"none");
 
         try{
             connection = new InitialDirContext(pro);
